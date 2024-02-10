@@ -17,9 +17,11 @@ This uses the input from the input box and searches the fruit list, regardless o
 function search(str) {
 	//Leaving this outside the filter method as this is not needed to be remade over and over
 	const lowerCaseSearch = str.toLowerCase();
-	//Decided to leave this outside the method as well so it isn't running this multiple times as well.
-	const lowerCaseFruits = fruit.map(val => val.toLowerCase());
-	return lowerCaseFruits.filter(val => val.includes(lowerCaseSearch));
+  
+	return fruit.filter(val => {
+	  const lowerCaseFruit = val.toLowerCase();
+	  return lowerCaseFruit.includes(lowerCaseSearch);
+	});
 }
 
 
