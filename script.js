@@ -26,13 +26,21 @@ function search(str) {
 
 
 function searchHandler(e) {
-	// TODO
-	console.log(search(input.value));
+	let results = search(input.value);
+	showSuggestions(results, input.value);
 }
 
 function showSuggestions(results, inputVal) {
 
-	// TODO
+	//This clears the dropdown list so it doesn't just keep adding suggestions
+	suggestions.innerHTML = '';
+
+	//Adds a <li> to the suggestions <div> for each search result
+	results.forEach(val => {
+		const newSuggestion = document.createElement("li");
+		newSuggestion.innerText = val;
+		suggestions.appendChild(newSuggestion);
+	})
 }
 
 function useSuggestion(e) {
