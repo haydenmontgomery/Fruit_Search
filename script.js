@@ -15,19 +15,17 @@ Removed results[] as it is unnesecssary if I return the value from the destructe
 This uses the input from the input box and searches the fruit list, regardless of upper or lowercase.
 */
 function search(str) {
+	//Leaving this outside the filter method as this is not needed to be remade over and over
 	const lowerCaseSearch = str.toLowerCase();
-  
-	return fruit.filter(val => {
-	  const lowerCaseFruit = val.toLowerCase();
-	  //console.log(lowerCaseFruit.includes(lowerCaseSearch));
-	  return lowerCaseFruit.includes(lowerCaseSearch);
-	});
+	//Decided to leave this outside the method as well so it isn't running this multiple times as well.
+	const lowerCaseFruits = fruit.map(val => val.toLowerCase());
+	return lowerCaseFruits.filter(val => val.includes(lowerCaseSearch));
 }
 
 
 function searchHandler(e) {
 	// TODO
-	//console.log(search(input.value));
+	console.log(search(input.value));
 }
 
 function showSuggestions(results, inputVal) {
