@@ -17,7 +17,7 @@ This uses the input from the input box and searches the fruit list, regardless o
 function search(str) {
 	//Leaving this outside the filter method as this is not needed to be remade over and over
 	const lowerCaseSearch = str.toLowerCase();
-  
+
 	return fruit.filter(val => {
 	  const lowerCaseFruit = val.toLowerCase();
 	  return lowerCaseFruit.includes(lowerCaseSearch);
@@ -26,15 +26,18 @@ function search(str) {
 
 
 function searchHandler(e) {
+	//This clears the dropdown list so it doesn't just keep adding suggestions
+	suggestions.innerHTML = '';
+	//If empty, then we return so we don't add the results so we can keep the dropdown empty.
+	if (input.value === '') return;
 	let results = search(input.value);
 	showSuggestions(results, input.value);
 }
 
 function showSuggestions(results, inputVal) {
-
-	//This clears the dropdown list so it doesn't just keep adding suggestions
-	suggestions.innerHTML = '';
-
+	//Cut out all but the first 5 results
+	results = results.slice(0,5);
+	
 	//Adds a <li> to the suggestions <div> for each search result
 	results.forEach(val => {
 		const newSuggestion = document.createElement("li");
