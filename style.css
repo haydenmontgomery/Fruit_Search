@@ -8,37 +8,65 @@
 
 body {
   /* TODO */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #ff4500;
+  background-image: linear-gradient(to right, #ffd700, #ff4500);
+
 }
 
 input {
  /* TODO */
+ background-color: rgba(255,255,255, 0.5);
+ border-color: rgba(255, 255, 255, 0.5);
+ width: 26.8vh;
+ outline: none;
+ 
 }
 
 .search-container {
  /* TODO */
+
 }
 .search-container input,
-.search-container .suggestions {
+.search-container .suggestions{
   /* TODO */
+
 }
 .search-container input {
  /* TODO */
+ 
 }
-.search-container .suggestions {
+.search-container .suggestions{
    /* TODO */
-}
+  position: absolute;
+  }
 
 ul {
   /* TODO */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  left: 0;
 }
 ul.has-suggestions {
   /* TODO */
+  
 }
 ul li {
   /* TODO */
+  width: 25vh;
+  padding: 5px 10px;
+  background-color: rgba(255,255,255, 0.5);
+  border-color: rgba(0, 0, 0, 0.3);
 }
 ul li:hover {
   /* TODO */
+  background-color: rgba(0, 0, 0, 0.1);
+  
 }
 
 input {

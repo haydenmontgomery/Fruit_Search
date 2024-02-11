@@ -46,21 +46,24 @@ function showSuggestions(results, inputVal) {
 }
 
 function useSuggestion(e) {
-	// TODO
+	// Replaces text and clears out the suggestions
 	input.value = e.target.innerText;
 	suggestions.innerHTML = '';
 }
 
+/*
+Turns out these might not even be needed due to the way CSS styling works
 function highlightSuggestion(e) {
 	console.log(e.target.innerText + " Highlighted");
-	console.log(eventDiv);
 }
 
 function removeHighlight(e) {
 	console.log(e.target.innerText + " Unhighlighted");
-}
+} */
 
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
+/* 
+Turns out these might not even be needed due to the way CSS styling works
 suggestions.addEventListener('mouseover', highlightSuggestion);
-suggestions.addEventListener('mouseout', removeHighlight);
+suggestions.addEventListener('mouseout', removeHighlight); */
