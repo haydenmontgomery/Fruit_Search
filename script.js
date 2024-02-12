@@ -41,6 +41,17 @@ function showSuggestions(results, inputVal) {
 	results.forEach(val => {
 		const newSuggestion = document.createElement("li");
 		newSuggestion.innerText = val;
+
+		//This will bold the text that matches the search value.
+		if (val.toLowerCase().includes(input.value.toLowerCase())) {
+
+			const boldText = document.createElement("span");
+			boldText.innerText = input.value;
+			boldText.style.fontWeight = "bold";
+			//Uses a regular expression to replace the matching text with bolded text.
+			newSuggestion.innerHTML = val.replace(new RegExp(input.value, "gi"), match => `<span style="font-weight: bold;">${match}</span>`);
+		}
+
 		suggestions.appendChild(newSuggestion);
 	})
 }
@@ -53,17 +64,21 @@ function useSuggestion(e) {
 
 /*
 Turns out these might not even be needed due to the way CSS styling works
+
 function highlightSuggestion(e) {
 	console.log(e.target.innerText + " Highlighted");
 }
 
 function removeHighlight(e) {
 	console.log(e.target.innerText + " Unhighlighted");
-} */
+} 
+*/
 
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
 /* 
 Turns out these might not even be needed due to the way CSS styling works
+
 suggestions.addEventListener('mouseover', highlightSuggestion);
-suggestions.addEventListener('mouseout', removeHighlight); */
+suggestions.addEventListener('mouseout', removeHighlight); 
+*/
