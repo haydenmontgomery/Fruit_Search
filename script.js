@@ -28,9 +28,9 @@ function searchHandler(e) {
 	//This clears the dropdown list so it doesn't just keep adding suggestions
 	suggestions.innerHTML = '';
 	//If empty, then we return so we don't add the results so we can keep the dropdown empty.
-	if (input.value === '') return;
-	let results = search(input.value);
-	showSuggestions(results, input.value);
+	if (e.currentTarget.value === '') return;
+	let results = search(e.currentTarget.value);
+	showSuggestions(results, e.currentTarget.value);
 }
 
 function showSuggestions(results, inputVal) {
@@ -43,13 +43,13 @@ function showSuggestions(results, inputVal) {
 		newSuggestion.innerText = val;
 
 		//This will bold the text that matches the search value.
-		if (val.toLowerCase().includes(input.value.toLowerCase())) {
+		if (val.toLowerCase().includes(inputVal.toLowerCase())) {
 
 			const boldText = document.createElement("span");
-			boldText.innerText = input.value;
+			boldText.innerText = inputVal;
 			boldText.style.fontWeight = "bold";
 			//Uses a regular expression to replace the matching text with bolded text.
-			newSuggestion.innerHTML = val.replace(new RegExp(input.value, "gi"), match => `<span style="font-weight: bold;">${match}</span>`);
+			newSuggestion.innerHTML = val.replace(new RegExp(inputVal, "gi"), match => `<span style="font-weight: bold;">${match}</span>`);
 		}
 
 		suggestions.appendChild(newSuggestion);
@@ -58,7 +58,9 @@ function showSuggestions(results, inputVal) {
 
 function useSuggestion(e) {
 	// Replaces text and clears out the suggestions
-	input.value = e.target.innerText;
+	//input.value = e.target.innerText;
+	let newInput = document.querySelector('#fruit');
+	newInput.value = e.target.innerText;
 	suggestions.innerHTML = '';
 }
 
